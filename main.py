@@ -3,9 +3,7 @@ from get_attachments import get_attachments
 from get_comments import get_emails_from_comments
 
 # get all emails from the linkedIn comment section
-# email_list = get_emails_from_comments()
-
-email_list = [{'Email': 'arpitsingh.97@icloud.com'}]
+email_list = get_emails_from_comments()
 
 # get the attachments
 attachment_list = get_attachments()
