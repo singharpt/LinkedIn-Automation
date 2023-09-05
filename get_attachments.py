@@ -56,19 +56,17 @@ def get_attachments():
     attachment_list = []
 
     # Get the file path
-    # for file_path in file_paths:
-    #     attach_obj = {}
-    #     attach_obj["ContentType"] = file_content_types[file_path.split(
-    #         ".")[-1]]
-    #     attach_obj["Filename"] = (file_path.split("/")[-1]).split(".")[0]
-    #     attach_obj["Base64Content"] = base64converter(file_path)
-    #     attachment_list.append(attach_obj)
-
     for file_path in file_paths:
         attach_obj = {}
-        attach_obj["ContentType"] = "text/plain"
-        attach_obj["Filename"] = (file_path.split("/")[-1]).split(".")[0]
-        attach_obj["Base64Content"] = "VGhpcyBpcyB5b3VyIGF0dGFjaGVkIGZpbGUhISEK"
+        attach_obj["content_type"] = file_content_types[file_path.split(
+            ".")[-1]]
+        attach_obj["name"] = file_path.split("/")[-1]
+
+        # Read the attachment content as bytes
+        attachment_content = base64converter(file_path)
+        # Convert bytes to a base64-encoded string
+        attach_obj["content"] = attachment_content.decode('utf-8')
+
         attachment_list.append(attach_obj)
 
     return attachment_list

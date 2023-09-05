@@ -1,11 +1,14 @@
-from mailjet_rest import Client
-from dotenv.main import load_dotenv
+from __future__ import print_function
+import sib_api_v3_sdk
+from sib_api_v3_sdk.rest import ApiException
 import os
+from dotenv.main import load_dotenv
 load_dotenv()
 
+configuration = sib_api_v3_sdk.Configuration()
+
 # get the envionment variables
-api_key = os.environ['API_KEY']
-api_secret = os.environ['API_SECRET_KEY']
+configuration.api_key['api-key'] = os.environ['API_KEY']
 sender_email = os.environ['SENDER_EMAIL']
 sender_name = os.environ['SENDER_NAME']
 email_subject = os.environ['EMAIL_SUBJECT']
@@ -13,28 +16,24 @@ email_body_text = os.environ['EMAIL_TEXT']
 email_body_html = os.environ['EMAIL_HTML']
 
 
-def send_emails(emails, attachments):
+def send_emails(email_list, attachment_list):
     """
-    This is an implementation of the mailJet API. Docs: https://dev.mailjet.com/email/guides/
+    This is an implementation of the brevo API. Docs: https://developers.brevo.com/docs/how-it-works
     Input: List of dictionary <emails>
     Output: API Response
     """
-    mailjet = Client(auth=(api_key, api_secret), version='v3.1')
-    data = {
-        'Messages': [
-            {
-                "From": {
-                    "Email": sender_email,
-                    "Name": sender_name
-                },
-                "To": emails,
-                "Subject": email_subject,
-                "TextPart": email_body_text,
-                "HTMLPart": email_body_html,
-                "Attachments": attachments
-            }
-        ]
-    }
+    api_instance = sib_api_v3_sdk.TransactionalEmailsApi(
+        sib_api_v3_sdk.ApiClient(configuration))
+    subject = email_subject
+    sender = {"name": sender_name, "email": sender_email}
+    html_content = email_body_text
+    to = email_list
+    attachments = attachment_list
+    send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(
+        to=to, html_content=html_content, sender=sender, subject=subject, attachment=attachments)
 
-    result = mailjet.send.create(data=data)
-    return result.json()
+    try:
+        api_response = api_instance.send_transac_email(send_smtp_email)
+        return api_response
+    except ApiException as e:
+        return f"Exception when calling SMTPApi->send_transac_email: {e}"
