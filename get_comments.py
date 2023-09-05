@@ -21,7 +21,7 @@ def get_emails_from_comments():
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     # options=options
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(options=options)
 
     # Navigate to the post url
     driver.get(post_url)

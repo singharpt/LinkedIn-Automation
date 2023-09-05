@@ -34,6 +34,6 @@ def send_emails(email_list, attachment_list):
 
     try:
         api_response = api_instance.send_transac_email(send_smtp_email)
-        return api_response
+        return {'status': True, 'message': api_response}
     except ApiException as e:
-        return f"Exception when calling SMTPApi->send_transac_email: {e}"
+        return {'status': False, 'message': f"Exception when calling SMTPApi->send_transac_email: {e}"}

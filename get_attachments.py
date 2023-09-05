@@ -7,31 +7,31 @@ load_dotenv()
 email_attachment_folder_path = os.environ['EMAIL_ATTACHMENT_FOLDER_PATH']
 
 file_content_types = {
-    "txt": "text/plain",
-    "html": "text/html",
-    "css": "text/css",
-    "js": "application/javascript",
-    "json": "application/json",
-    "xml": "application/xml",
-    "jpg": "image/jpeg",
-    "jpeg": "image/jpeg",
-    "png": "image/png",
-    "gif": "image/gif",
-    "bmp": "image/bmp",
-    "pdf": "application/pdf",
-    "doc": "application/msword",
-    "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    "xls": "application/vnd.ms-excel",
-    "xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    "ppt": "application/vnd.ms-powerpoint",
-    "pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-    "zip": "application/zip",
-    "tar": "application/x-tar",
-    "gz": "application/gzip",
-    "mp3": "audio/mpeg",
-    "wav": "audio/wav",
-    "avi": "video/x-msvideo",
-    "mp4": "video/mp4",
+    ".txt": "text/plain",
+    ".html": "text/html",
+    ".css": "text/css",
+    ".js": "application/javascript",
+    ".json": "application/json",
+    ".xml": "application/xml",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".png": "image/png",
+    ".gif": "image/gif",
+    ".bmp": "image/bmp",
+    ".pdf": "application/pdf",
+    ".doc": "application/msword",
+    ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ".xls": "application/vnd.ms-excel",
+    ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    ".ppt": "application/vnd.ms-powerpoint",
+    ".pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    ".zip": "application/zip",
+    ".tar": "application/x-tar",
+    ".gz": "application/gzip",
+    ".mp3": "audio/mpeg",
+    ".wav": "audio/wav",
+    ".avi": "video/x-msvideo",
+    ".mp4": "video/mp4",
 }
 
 
@@ -58,9 +58,9 @@ def get_attachments():
     # Get the file path
     for file_path in file_paths:
         attach_obj = {}
-        attach_obj["content_type"] = file_content_types[file_path.split(
-            ".")[-1]]
-        attach_obj["name"] = file_path.split("/")[-1]
+        attach_obj["content_type"] = file_content_types[os.path.splitext(
+            os.path.basename(file_path))[1]]
+        attach_obj["name"] = os.path.basename(file_path)
 
         # Read the attachment content as bytes
         attachment_content = base64converter(file_path)
