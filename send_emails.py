@@ -18,8 +18,8 @@ email_body_html = os.environ['EMAIL_HTML']
 
 def send_emails(email_list, attachment_list):
     """
-    This is an implementation of the brevo API. Docs: https://developers.brevo.com/docs/how-it-works
-    Input: List of dictionary <emails>
+    This is an implementation of the brevo <sendInBlue> API. Docs: https://developers.brevo.com/docs/how-it-works
+    Input: List of dictionary <emails>, List of dictionary <attachments>
     Output: API Response
     """
     api_instance = sib_api_v3_sdk.TransactionalEmailsApi(
