@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Automated LinkedIn Data Sharing Tool</title>
+  <h1>Automated LinkedIn Data Sharing Tool</h1>
 </head>
 
 <body>
