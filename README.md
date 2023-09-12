@@ -25,14 +25,13 @@
     <li><strong>Efficient Cache Management:</strong> The tool ensures that duplicate emails are not sent to the same user.</li>
   </ol>
 
-  <h2>Getting Started</h2>
-
-  <p>Follow these steps to get started with the Automated LinkedIn Data Sharing Tool:</p>
+  <h2>Tech Stack Used</h2>
 
   <ol>
-    <li>Clone the repository to your local machine.</li>
-    <li>Configure the tool by editing the configuration file (config.yaml).</li>
-    <li>Run the tool using the provided instructions in the documentation.</li>
+    <li>Python</li>
+    <li>Selenium</li>
+    <li>Brevo SendInBlue Email API</li>
+    <li>CronJobs</li>
   </ol>
 
   <h2>Contributions</h2>
