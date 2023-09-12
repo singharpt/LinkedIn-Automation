@@ -16,13 +16,6 @@
     <li><strong>Cost-Free:</strong> My solution is completely free to use, saving you money while simplifying the data sharing process.</li>
   </ul>
 
-  <h3>Additional Benefits:</h3>
-
-  <ul>
-    <li><strong>Automatic Cron Scheduling:</strong> Schedule data sharing at your convenience.</li>
-    <li><strong>Cache Management:</strong> Prevent duplicate emails from being sent to the same user, enhancing efficiency.</li>
-  </ul>
-
   <h2>How It Works</h2>
 
   <ol>
