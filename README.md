@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <h1>Automated LinkedIn Data Sharing Tool</h1>
-</head>
-
 <body>
 
   <h1>Automated LinkedIn Data Sharing Tool</h1>
