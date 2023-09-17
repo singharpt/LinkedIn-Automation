@@ -54,7 +54,7 @@ This tool automates the process of sharing data with LinkedIn users who request 
          - Cron jobs can be scheduled to run at specific times.
          - To schedule your own time (OPTIONAL):
            - Open the `bash.sh` file.
-           - Change the value inside the `" "` of the job interval key. You can use a tool like [crontab.guru](https://crontab.guru/) to generate the cron job schedule string.
+           - Change the value inside the of the `job_interval` key. You can use a tool like [crontab.guru](https://crontab.guru/) to generate a new value of job_interval key.
            - Save the `bash` file.
          - Run: `bash bash.sh` (this will create a cron job that runs the code every day at 09:00 AM (if bash.sh file was not modified)).
          - To check if a cron job is scheduled, run the command: `crontab -l`.
