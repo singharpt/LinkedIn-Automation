@@ -30,7 +30,7 @@ def send_emails(email_list, attachment_list):
     to = email_list
     attachments = attachment_list
     send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(
-        to=to, html_content=html_content, sender=sender, subject=subject, attachment=attachments)
+        to=to, text_content=email_body_text, html_content=html_content, sender=sender, subject=subject, attachment=attachments)
 
     try:
         api_response = api_instance.send_transac_email(send_smtp_email)
