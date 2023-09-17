@@ -23,7 +23,7 @@ This tool automates the process of sharing data with LinkedIn users who request 
 
 ## How to Use
 
-1. **Clone Repository:** Clone this repository using https://github.com/singharpt/LinkedIn-Automation.git
+1. **Clone Repository:** Download Zip or clone this repository using https://github.com/singharpt/LinkedIn-Automation.git
 2. **Create Brevo API Account:** Visit [Brevo API](https://onboarding.brevo.com/account/register) and complete the registration process.
 3. **Choose the Free Plan:** Select the free tier plan, providing 300 free emails per day.
 4. **Generate API Keys:** Go to [API Key Generation](https://app.brevo.com/settings/keys/api), create a new API key, and save it in a text file for later use.
