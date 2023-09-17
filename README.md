@@ -23,7 +23,7 @@ This tool automates the process of sharing data with LinkedIn users who request 
 
 ## How to Use
 
-1. **Clone Repository:** Clone this repository using [this link](https://github.com/singharpt/LinkedIn-Automation.git).
+1. **Clone Repository:** Clone this repository using https://github.com/singharpt/LinkedIn-Automation.git
 2. **Create Brevo API Account:** Visit [Brevo API](https://onboarding.brevo.com/account/register) and complete the registration process.
 3. **Choose the Free Plan:** Select the free tier plan, providing 300 free emails per day.
 4. **Generate API Keys:** Go to [API Key Generation](https://app.brevo.com/settings/keys/api), create a new API key, and save it in a text file for later use.
@@ -34,7 +34,7 @@ This tool automates the process of sharing data with LinkedIn users who request 
      - `SENDER_NAME`: Your name associated with the email.
      - `POST_URL`: URL of your LinkedIn post.
      - `LINKEDIN_EMAIL`: Your LinkedIn username/email.
-     - `LINKEDIN_PASSWORD`: Your LinkedIn password (The tool runs locally, ensuring data privacy).
+     - `LINKEDIN_PASSWORD`: Your LinkedIn password (Don't worry the solution runs locally, ensuring data privacy).
      - `EMAIL_SUBJECT`: Subject of the email you want to send.
      - `EMAIL_TEXT`: Email body.
      - `EMAIL_HTML`: Optional HTML content (leave empty if not needed).
