@@ -1,22 +1,24 @@
-import pickle
 import os
 from dotenv.main import load_dotenv
 load_dotenv()
 
-cache_filename = os.environ['CACHE_FILENAME']
+# set the path of the cache file
+script_dir = os.path.dirname(os.path.abspath(__file__))
+cache_filepath = os.path.join(script_dir, "cache.txt")
 
 
 class Cache:
-
     def __init__(self):
-        self.cache = set()
+        self.cache = None
 
     def get_cache(self):
         print("Reading the cache...")
         try:
-            self.cache = pickle.load(open(cache_filename, "rb"))
-        except (OSError, IOError) as e:
-            pickle.dump(self.cache, open(cache_filename, "wb"))
+            with open(cache_filepath, 'r', encoding='utf-8') as rfile:
+                self.cache = set([line.strip() for line in rfile])
+                print(self.cache)
+        except FileNotFoundError:
+            self.cache = set()
 
     def run_cache_check(self, seen_email_list):
         """
@@ -47,10 +49,9 @@ class Cache:
         """
 
         print("Adding new emails to the cache...")
-        for item in unseen_email_list:
-            self.cache.add(item['Email'])
+        self.cache.update(item['Email'] for item in unseen_email_list)
 
         print("Saving cache to the disk...")
-
-        with open(cache_filename, 'wb') as fp:
-            pickle.dump(self.cache, fp)
+        with open(cache_filepath, 'w', encoding='utf-8') as wfile:
+            for line in self.cache:
+                wfile.write(line+'\n')

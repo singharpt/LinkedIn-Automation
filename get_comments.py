@@ -21,7 +21,7 @@ def get_emails_from_comments():
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     # options=options
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(options=options)
 
     # Navigate to the post url
     driver.get(post_url)
@@ -58,8 +58,13 @@ def get_emails_from_comments():
 
         # Extract and get the text inside the span if found
         if ltr_span:
-            email_inside_span = ltr_span.get_text()
-            email_list.append({"Email": email_inside_span})
+            # Find all <a> tags
+            all_a_tags = soup.find_all('a')
+            # Extract strings containing "mailto:"
+            for a_tag in all_a_tags:
+                href = a_tag.get('href', '')
+                if 'mailto:' in href:
+                    email_list.append({"Email": a_tag.text})
 
     # Close the WebDriver when you're done
     driver.quit()
