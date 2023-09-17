@@ -1,46 +1,46 @@
-# Automated LinkedIn Data Sharing Tool
+# LinkedIn Data Sharing Automation Tool
 
 ## Overview
 
-LinkedIn users often create posts to share data publicly, requesting interested users to comment with their email addresses. These posts can receive an overwhelming response, sometimes exceeding 1000+ interested users. To address this challenge, I have developed an in-house solution that automates the process of sending requested data to interested users.
+This tool automates the process of sharing data with LinkedIn users who request it through posts. It eliminates the need to manually collect email addresses and send data, making the process efficient and privacy-focused.
 
 ## Key Features
 
-- **Privacy-Focused:** Unlike other online solutions, my tool doesn't require you to share your personal data with a website, ensuring your privacy.
-- **Cost-Free:** My solution is completely free to use, saving you money while simplifying the data sharing process.
-- **Auto scheduling:** You can schedule it to run automatically on a particular time every-day, every-week, every-month, every-year, etc.
-- **Keeps track of emails sent:** The solution ensures that duplicate emails are not sent to the same user and provides a list of all emails mailed till the last run.
-- **Supports various email attachments:** You can attach single or multiple attachments. Supports all major attachments including images, pdfs, docs, excel, csv, etc.
-- **Runs seamlessly:** The solution runs seamlessly in the background and does not hinder the task user might be performing at the moment.
+- **Privacy-Focused:** Your data stays private; no need to share personal information with third-party websites.
+- **Cost-Free:** Completely free to use, saving you money and simplifying data sharing.
+- **Scheduled Execution:** Set it to run automatically daily, weekly, monthly, or as needed.
+- **Email Tracking:** Prevents duplicate emails and maintains a record of sent emails.
+- **Attachment Support:** Attach various file types, such as images, PDFs, documents, and more.
+- **Seamless Execution:** Runs in the background without disrupting your tasks.
 
-## How it works
+## How It Works
 
-1. **Gets LinkedIn data using Selenium:** Logs into user's LinkedIn account using Selenium, and gets the comments' section data of the target post.
-2. **Checks the cache:** After extracting all email addresses present in the comments section it filters out all unique emails using the cache data.
-3. **Gets the attachments ready:** Goes to the target folder specified by the user and converts all the files as binary data to be attached with the email.
-4. **Send bulk email:** Using the Brevo transactional email API, bulk emails are sent to the users.
-5. **Updates the cache:** Once emails are delivered to the target email addresses, it updates the cache.txt file (inside the project directory) with the new email addresses.
+1. **LinkedIn Data Extraction:** It logs into your LinkedIn account using Selenium and extracts email addresses from post comments.
+2. **Cache Check:** Filters out unique email addresses and prevents duplicates using cache data.
+3. **Attachment Preparation:** Converts files from a specified folder into email attachments.
+4. **Bulk Email Sending:** Uses the Brevo transactional email API to send emails in bulk.
+5. **Cache Update:** Updates the cache.txt file with newly sent email addresses.
 
-## How to use
+## How to Use
 
-1. **Clone Repo:** Clone Repository: Clone this repo using this link - [GitHub Repo](https://github.com/singharpt/LinkedIn-Automation.git).
-2. **Create Account at Brevo API:** Go to [Brevo API](https://onboarding.brevo.com/account/register) and fill in your details.
-3. **Select the FREE plan:** Select the free tier plan, which provides you with 300 emails a day for free.
-4. **Create API Keys:** Go to [Brevo API Key Generation](https://app.brevo.com/settings/keys/api), click on "Generate a New API Key," give it a name, and click on generate. MOST IMPORTANT: copy the API key to a text file, we will need it later.
-5. **Update .env file:**
-   - Go to the folder you just cloned from the GitHub and open the .env file. Update the key values as per the instructions below:
-   - `API_KEY`: Paste the Brevo API key value we just got from the Brevo API Website.
-   - `SENDER_EMAIL`: Enter the email address you used to create an account at Brevo. For example, arpit.singh@utdallas.edu
-   - `SENDER_NAME`: Enter the name associated with the above email address
-   - `POST_URL`: Enter the URL of your post on LinkedIn
-   - `LINKEDIN_EMAIL`: Enter your LinkedIn username/email
-   - `LINKEDIN_PASSWORD`: Enter your LinkedIn password (Don't worry! The solution works locally on your PC; your data will not be shared with anyone)
-   - `EMAIL_SUBJECT`: Enter the subject of the email you want to send (For example, Hi! I got the data you requested in the LinkedIn comment section)
-   - `EMAIL_TEXT`: Enter the body of your email.
-   - `EMAIL_HTML`: In case you want to add any HTML content, you can; otherwise, you can leave this empty. (DO NOT DELETE THE KEY)
-   - `EMAIL_ATTACHMENT_FOLDER_PATH`: This is the path to your folder that contains all the attachments. For example, /Users/Documents/Attachments
+1. **Clone Repository:** Clone this repository using [this link](https://github.com/singharpt/LinkedIn-Automation.git).
+2. **Create Brevo API Account:** Visit [Brevo API](https://onboarding.brevo.com/account/register) and complete the registration process.
+3. **Choose the Free Plan:** Select the free tier plan, providing 300 free emails per day.
+4. **Generate API Keys:** Go to [API Key Generation](https://app.brevo.com/settings/keys/api), create a new API key, and save it in a text file for later use.
+5. **Update .env File:**
+   - Open the .env file in the cloned folder and update the following values:
+     - `API_KEY`: Paste the Brevo API key.
+     - `SENDER_EMAIL`: Your Brevo account email (e.g., arpit.singh@utdallas.edu).
+     - `SENDER_NAME`: Your name associated with the email.
+     - `POST_URL`: URL of your LinkedIn post.
+     - `LINKEDIN_EMAIL`: Your LinkedIn username/email.
+     - `LINKEDIN_PASSWORD`: Your LinkedIn password (The tool runs locally, ensuring data privacy).
+     - `EMAIL_SUBJECT`: Subject of the email you want to send.
+     - `EMAIL_TEXT`: Email body.
+     - `EMAIL_HTML`: Optional HTML content (leave empty if not needed).
+     - `EMAIL_ATTACHMENT_FOLDER_PATH`: Path to the folder containing attachments (e.g., /Users/Documents/Attachments).
 
-## Tech Stack Used
+## Tech Stack
 
 - Python
 - Object-Oriented Programming
@@ -50,12 +50,12 @@ LinkedIn users often create posts to share data publicly, requesting interested 
 
 ## Contributions
 
-Contributions and improvements to this project are welcome. Please open an issue to discuss any new features, bug fixes, or enhancements you'd like to contribute.
+Contributions and improvements are welcome. Feel free to open an issue to discuss new features, bug fixes, or enhancements.
 
-Please note that this was an experimental project only for learning purposes. I believe a better and optimized solution for the specific problem could be developed.
+Please note that this project was experimental and intended for learning purposes. There may be room for better and optimized solutions to the same problem.
 
-If you encounter any issues or have questions, please feel free to contact me directly at [arpit.singh@utdallas.edu](mailto:arpit.singh@utdallas.edu).
+If you encounter issues or have questions, contact me directly at [arpit.singh@utdallas.edu](mailto:arpit.singh@utdallas.edu).
 
 ## Acknowledgments
 
-I'd like to thank the open-source community for their contributions and support in developing this tool.
+Thanks to the open-source community for their contributions and support in developing this tool.
