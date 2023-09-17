@@ -38,8 +38,29 @@ This tool automates the process of sharing data with LinkedIn users who request 
      - `EMAIL_SUBJECT`: Subject of the email you want to send.
      - `EMAIL_TEXT`: Email body.
      - `EMAIL_HTML`: Optional HTML content (leave empty if not needed).
-     - `EMAIL_ATTACHMENT_FOLDER_PATH`: Path to the folder containing attachments (e.g., /Users/Documents/Attachments).
-
+     - `EMAIL_ATTACHMENT_FOLDER_PATH`: Put all the attachments in a single folder and provide complete path of that folder. (e.g., /Users/Documents/Attachments).
+6. **Run the Project:**
+   - **Important:** First, [install the latest version of Python](https://www.python.org/downloads/) if not installed already.
+   - This project can be run manually or scheduled as a cron job (Linux/MacOS users only).
+     - **Manually:**
+       - Open the command line.
+       - Go to the project directory.
+       - Run: `pip install -r requirements.txt`.
+       - Run: `main.py`.
+     - **Automatically (Mac/Linux Users Only):**
+       - Go to the project directory.
+       - Run: `pip install -r requirements.txt`.
+       - **How to Interact with Cron Jobs:**
+         - Cron jobs can be scheduled to run at specific times.
+         - To schedule your own time (OPTIONAL):
+           - Open the `bash.sh` file.
+           - Change the value inside the `" "` of the job interval key. You can use a tool like [crontab.guru](https://crontab.guru/) to generate the cron job schedule string.
+           - Save the `bash` file.
+         - Run: `bash bash.sh` (this will create a cron job that runs the code every day at 09:00 AM (if bash.sh file was not modified)).
+         - To check if a cron job is scheduled, run the command: `crontab -l`.
+         - To remove a scheduled cron job, run the command: `crontab -r`.
+         - Each time a cron job runs, it sends you a system mail containing logs of the run. To check the logs, run the command: `mail` and select the mail you want to see.
+           
 ## Tech Stack
 
 - Python
