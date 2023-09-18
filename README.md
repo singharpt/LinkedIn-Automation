@@ -46,7 +46,7 @@ This tool automates the process of sharing data with LinkedIn users who request 
        - Open the command line.
        - Go to the project directory.
        - Run: `pip install -r requirements.txt`.
-       - Run: `main.py`.
+       - Run: `python main.py`.
      - **Automatically (Mac/Linux Users Only):**
        - Go to the project directory.
        - Run: `pip install -r requirements.txt`.
